@@ -75,12 +75,12 @@ def indent_html(html, indent_level) -> str:
     return result
 
 
-def convert(file) -> int:
-    markdown_path = file
+def convert(markdown_path) -> int:
     setting = loadsetting.load()
     indent = setting["indent-level"]
     ignore = setting["ignore"]
-    if file in ignore:
+    print(markdown_path)
+    if markdown_path in ignore:
         return 1
     with open(markdown_path) as f:
         base_html = mdc(f.read())

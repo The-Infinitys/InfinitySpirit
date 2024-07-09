@@ -15,7 +15,7 @@ def main() -> int:
         print("InfinitySpirit Error: Invalid Current Directory")
         return 1
     copy_right()
-    for file in search.all_files("./"):
+    for file in search.all_files("."):
         if file.endswith(".md"):
             convert.convert(file)
     github.renew()
