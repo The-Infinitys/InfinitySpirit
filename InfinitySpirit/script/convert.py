@@ -115,5 +115,5 @@ def convert(markdown_path) -> int:
     with open(markdown_path[:-3] + ".css", mode="w") as style_css:
         style_css.write(open("./InfinitySpirit/template/"+loadsetting.load()["template"]+"/style.css").read())
     with open(markdown_path[:-3] + ".js", mode="w") as script_js:
-        script_js.write(open("./InfinitySpirit/template/"+loadsetting.load()["template"]+"/script.js")read())
+        script_js.write(open("./InfinitySpirit/template/"+loadsetting.load()["template"]+"/script.js").read())
     return 0
