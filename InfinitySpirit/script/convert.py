@@ -67,18 +67,11 @@ def mdc(markdown_text):
             else:
                 markdown_line = markdown_line.replace("~~", "<s>", 1)
             convert_mode["~~"] = not convert_mode["~~"]
-        if markdown_line.startswith("# title: "):
-            markdown_title = markdown_line[9:]
-        elif markdown_line.startswith("# date: "):
-            markdown_date = markdown_line[8:]
-        else:
-            markdown_result += markdown_line + "\n"
+        markdown_result += markdown_line + "\n"
     return {
         "html": markdown.markdown(
             markdown_result, extensions=extensions, extension_configs=configs
-        ),
-        "title": markdown_title,
-        "date": markdown_date,
+        )
     }
 
 
@@ -152,7 +145,6 @@ def convert(date, now_year, indent) -> None:
                         }
                     )
         with open("./" + month_dir + "/articles.json", mode="w") as f:
-
             def get_date(obj) -> str:
                 return obj["date"]
 
