@@ -1,5 +1,7 @@
 {
-  "converter": {
-   "indent-level": 10
-  }
+  "indent-level": 10,
+  "ignore":[
+    "./readme.md",
+    "./change-log.md"
+  ]
 }
