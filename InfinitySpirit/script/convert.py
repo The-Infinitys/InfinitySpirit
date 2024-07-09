@@ -94,7 +94,7 @@ def convert(markdown_path) -> int:
     # style.cssの作成
     export_html = export_html.replace(
         '<link rel="stylesheet" href="./style.css" />',
-        '<link rel="stylesheet" href="./'
+        '<link rel="stylesheet" href=".'
         + markdown_path[markdown_path.rfind("/") : -3]
         + ".css"
         + '" />',
@@ -102,7 +102,7 @@ def convert(markdown_path) -> int:
     # script.jsの作成
     export_html = export_html.replace(
         '<script defer src="./script.js"></script>',
-        '<script defer src="'
+        '<script defer src=".'
         + markdown_path[markdown_path.rfind("/") : -3]
         + ".js"
         + '"></script>',
