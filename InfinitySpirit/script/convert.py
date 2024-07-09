@@ -91,9 +91,29 @@ def convert(markdown_path) -> int:
         + indent * " "
         + "</InfinitySpiritContent>"
     )
+    # style.cssの作成
+    export_html = export_html.replace(
+        '<link rel="stylesheet" href="./style.css" />',
+        '<link rel="stylesheet" href="./'
+        + markdown_path[markdown_path.rfind("/") : -3]
+        + ".css"
+        + '" />',
+    )
+    # script.jsの作成
+    export_html = export_html.replace(
+        '<script defer src="./script.js"></script>',
+        '<script defer src="'
+        + markdown_path[markdown_path.rfind("/") : -3]
+        + ".js"
+        + '"></script>',
+    )
     export_html = export_html.replace(
         replace_pos["content"], "<InfinitySpiritContent>\n" + base_html
     )
     with open(markdown_path[:-3] + ".html", mode="w") as index_html:
         index_html.write(export_html)
+    with open(markdown_path[:-3] + ".css", mode="w") as style_css:
+        style_css.write(open("./InfinitySpirit/template/style.css").read())
+    with open(markdown_path[:-3] + ".js", mode="w") as script_js:
+        script_js.write(open("./InfinitySpirit/template/style.css").read())
     return 0

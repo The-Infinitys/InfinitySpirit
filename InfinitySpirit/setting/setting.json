@@ -1,7 +1,4 @@
 {
   "indent-level": 10,
-  "ignore":[
-    "./readme.md",
-    "./change-log.md"
-  ]
+  "ignore": ["./readme.md", "./change-log.md", "./document.md"]
 }
