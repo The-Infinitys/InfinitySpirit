@@ -103,6 +103,9 @@ InfinitySpiritDate {
   margin-left: 20px;
 }
 
+.codehilite {
+  overflow-x: scroll;
+}
 
 .articles-recommended {
   line-height: 2;
