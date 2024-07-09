@@ -1,4 +1,5 @@
 {
+  "template":"default",
   "indent-level": 10,
-  "ignore": ["./readme.md", "./change-log.md", "./document.md"]
+  "ignore": ["./README.md", "./change-log.md", "./document.md"]
 }

@@ -20,6 +20,7 @@
   padding-top: 5vh;
   background-color: var(--infinityspirit-back);
   color: var(--infinityspirit-text);
+  min-height: 100vh;
 }
 
 
@@ -27,7 +28,9 @@
   line-height: 2;
   font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
   width: 50%;
+  min-height: 80vh;
   margin-left: 5%;
+  margin-bottom: -70vh;
   padding: 5%;
   height: auto;
   background: color-mix(in srgb, var(--infinityspirit-back), #888 20%);
