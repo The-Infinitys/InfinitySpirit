@@ -94,6 +94,6 @@ def convert(markdown_path) -> int:
     export_html = export_html.replace(
         replace_pos["content"], "<InfinitySpiritContent>\n" + base_html
     )
-    with open(file[:-3] + ".html", mode="w") as index_html:
+    with open(markdown_path[:-3] + ".html", mode="w") as index_html:
         index_html.write(export_html)
     return 0
