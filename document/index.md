@@ -1,5 +1,5 @@
-## How to use
-
+# How to use
+## Easy step to start
 first, please clone this repository's files.
 
 ```
