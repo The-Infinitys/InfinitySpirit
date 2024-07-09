@@ -10,4 +10,4 @@ Created by [The Infinity's](https://the-infinitys.f5.si/)
 ## links
 
 - [change log](./change-log.md)
-- [document](./document.md)
+- [document](./document)
