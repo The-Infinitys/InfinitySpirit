@@ -11,9 +11,19 @@ const create_gotop_button = () => {
     stroke="#888"
     stroke-width="2">
     <g>
+      <animate
+        attributeName="stroke"
+        dur="5s"
+        repeatCount="indefinite"
+        values="#ff0000;#ffff00;#00ff00;#00ffff;#0000ff;#ff00ff;#ff0000"
+        >
+      </animate>
       <circle cx="50" cy="50" r="40" />
-      <path d="M 80 55 L50 45 L 20 55" />
-      <path d="M 80 65 L50 55 L 20 65" />
+      <path d="M 80 45 L50 25 L 20 45" />
+      <path d="M 80 55 L50 35 L 20 55" />
+      <circle cx="50" cy="65" r="20"/>
+      <ellipse cx="40" cy="65" rx="10" ry="8" stroke-width="1" />
+      <ellipse cx="60" cy="65" rx="10" ry="8" stroke-width="1" />
     </g>
   </svg>
   `;
