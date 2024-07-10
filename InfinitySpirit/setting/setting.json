@@ -1,5 +1,5 @@
 {
-  "template":"default",
+  "template":"Infinitys",
   "indent-level": 10,
   "ignore": ["./README.md", "./change-log.md", "./document.md"]
 }
