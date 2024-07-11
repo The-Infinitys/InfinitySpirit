@@ -28,10 +28,10 @@ const create_gotop_button = () => {
   </svg>
   `;
   go_top.onclick = () => {
-    document.querySelector("body").scrollIntoView({
+    window.scrollTo({
+      top: 0,
+      left: 0,
       behavior: "smooth",
-      block: "start",
-      inline: "center",
     });
   };
   document.body.append(go_top);
@@ -43,11 +43,14 @@ const makeIndex = () => {
   const addIndex = (element) => {
     const tag = document.createElement(element.tagName);
     tag.innerHTML = element.innerHTML;
+    const element_pos = element.getBoundingClientRect();
+    const element_x = element_pos.x;
+    const element_y = element_pos.y;
     tag.onclick = () => {
-      element.scrollIntoView({
+      window.scrollTo({
         behavior: "smooth",
-        block: "center",
-        inline: "center",
+        top: element_y - window.innerHeight / 9,
+        left: element_x,
       });
     };
     article_index.append(tag);
@@ -89,8 +92,8 @@ try {
 } catch (SyntaxError) {
   console.log("not found date object");
 }
-if (document.querySelector(".article-title").innerHTML == "") {
-  document.querySelector("InfinitySpiritArticleTitle").innerHTML =
+if (document.querySelector("InfinitySpiritTitle").innerHTML == "") {
+  document.querySelector("InfinitySpiritTitle").innerHTML =
     document.querySelector("InfinitySpiritContent h1").innerHTML;
 }
 const renew_Infinity_clock = () => {
@@ -127,53 +130,3 @@ const renew_Infinity_clock = () => {
   requestAnimationFrame(renew_Infinity_clock);
 };
 renew_Infinity_clock();
-
-const recommendArticles = async () => {
-  const article_list = document.querySelector(".articles-recommended");
-  article_list.innerHTML = "";
-  article_info_datas = [];
-  const add_article_button = (article_info) => {
-    const article_button = document.createElement("button");
-    const article_root_path =
-      "../../" +
-      (article_info.month + 1).toString().padStart(2, "0") +
-      "/" +
-      article_info.id +
-      "/";
-    article_button.onclick = () => {
-      window.location.href = article_root_path;
-    };
-    const thumbnail = new Image();
-    if (article_info.thumbnail == "") {
-      thumbnail.src = "../../InfinitySpirit/template/image/loading.svg";
-    } else {
-      thumbnail.src = article_root_path + article_info.thumbnail;
-    }
-    const loading = new Image();
-    loading.src = "../../InfinitySpirit/template/image/loading.svg";
-    const title = document.createElement("div");
-    title.innerHTML =
-      "<h1>" + article_info.title + "</h1><p>date: " + article_info.date;
-    article_button.append(loading);
-    article_button.append(thumbnail);
-    article_button.append(title);
-    article_list.append(article_button);
-  };
-  for (let month_count = 0; month_count < 12; month_count++) {
-    const this_month = new Date().getMonth();
-    const list_path =
-      "../../" +
-      (1 + ((month_count + this_month) % 12)).toString().padStart(2, "0") +
-      "/articles.json";
-    await fetch(list_path)
-      .then((res) => res.json())
-      .then((article_data) => {
-        const datas = article_data.articles;
-        datas.forEach((article_info) => {
-          article_info.month = (month_count + this_month) % 12;
-          add_article_button(article_info);
-        });
-      });
-  }
-};
-recommendArticles();
