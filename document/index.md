@@ -38,7 +38,7 @@ default json
 
 ### template
 you can select templates from
-[InfinitySpirit/template/](./InfinitySpirit/template/)
+[InfinitySpirit/layout/](./InfinitySpirit/layout/)
 also, you can make own templates.
 
 ### indent level

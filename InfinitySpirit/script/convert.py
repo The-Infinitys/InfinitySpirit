@@ -26,7 +26,7 @@ def find_elem(tag, key) -> None:
         sys.exit(1)
 
 
-with open("./InfinitySpirit/template/"+loadsetting.load()["template"]+"/index.html") as f:
+with open("./InfinitySpirit/layout/"+loadsetting.load()["template"]+"/index.html") as f:
     template_html = f.read()
     find_elem("InfinitySpiritContent", "content")
 
@@ -113,7 +113,7 @@ def convert(markdown_path) -> int:
     with open(markdown_path[:-3] + ".html", mode="w") as index_html:
         index_html.write(export_html)
     with open(markdown_path[:-3] + ".css", mode="w") as style_css:
-        style_css.write(open("./InfinitySpirit/template/"+loadsetting.load()["template"]+"/style.css").read())
+        style_css.write(open("./InfinitySpirit/layout/"+loadsetting.load()["template"]+"/style.css").read())
     with open(markdown_path[:-3] + ".js", mode="w") as script_js:
-        script_js.write(open("./InfinitySpirit/template/"+loadsetting.load()["template"]+"/script.js").read())
+        script_js.write(open("./InfinitySpirit/layout/"+loadsetting.load()["template"]+"/script.js").read())
     return 0
